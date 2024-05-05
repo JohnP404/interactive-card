@@ -1,0 +1,226 @@
+@use 'variables' as var;
+@use 'resets';
+
+body {
+   font-size: 18px;
+   font-family: 'Space Grotesk', sans-serif;
+}
+
+input {
+   width: 100%;
+}
+
+input::placeholder {
+   color: darken(var.$light-violet, 10%);
+}
+
+label {
+   display: block;
+   color: var.$very-dark-violet;
+   text-transform: uppercase;
+   font-size: .9rem;
+   margin-top: 1.1rem;
+   letter-spacing: .125rem;
+}
+
+.warning {
+   color: var.$input-error;
+   font-size: .8rem;
+   display: block;
+}
+
+.wrapper {
+   min-height: 720px;
+   min-width: 375px;
+}
+
+.card-cvc--text {
+   position: absolute;
+   font-size: .8rem;
+   z-index: 4;
+   top: 40%;
+   right: 15%;
+   color: var.$white;
+}
+
+.front--text {
+   z-index: 4;
+   color: var.$white;
+   justify-content: space-between;
+   position: absolute;
+   top: 83%;
+   left: 10%;
+   display: grid;
+   text-transform: uppercase;
+   font-size: .8rem;
+   grid-template-areas:
+      "number number"
+      "name date";
+
+   .card-number--text {
+      grid-area: number;
+      font-size: 1.2rem;
+      letter-spacing: .1rem;
+      margin-bottom: 1rem;
+   }
+
+   .card-name--text {
+      grid-area: name;
+      width: 12.8rem;
+   }
+
+   .card-date--text {
+      grid-area: date;
+      text-align: end;
+   }
+}
+
+.header-wrapper {
+   background: url('../img/bg-main-mobile.png') no-repeat;
+   background-size: cover;
+   margin-bottom: 9vh;
+   height: 230px;
+
+   .header {
+      position: relative;
+      height: 230px;
+      max-width: 412px;
+      min-width: 375px;
+      margin: 0 auto;
+
+      img {
+         width: 289px;
+         position: absolute;
+         z-index: 3;
+      }
+
+      img:nth-child(1) {
+         right: 5%;
+         top: 10%;
+         z-index: 1;
+      }
+
+      img:nth-child(2) {
+         z-index: 2;
+         left: 5%;
+         top: 48%;
+      }
+
+      img:nth-child(3) {
+         width: 15%;
+         max-width: 62px;
+         top: 54%;
+         left: 10%;
+      }
+   }
+}
+
+.form {
+   display: grid;
+   width: 90%;
+   margin: 0 auto;
+
+   input {
+      border: 1px solid var.$dark-violet;
+      border-radius: .6rem;
+      margin-top: .6rem;
+      padding: .8rem;
+      font-size: 1.2rem;
+   }
+
+   input:focus {
+      outline: 0;
+      border: 1px solid hsl(249, 99%, 64%);
+   }
+
+   &__subcontainer {
+      display: flex;
+
+      &--1 {
+         width: 80%;
+      }
+
+      &--1 input {
+         width: 45%;
+      }
+
+      &--2 input {
+         width: 100%;
+      }
+   }
+
+   .confirm-btn {
+      padding: 1rem 0;
+      background-color: lighten(var.$very-dark-violet, 10%);
+      color: var.$white;
+      font-size: 1.2rem;
+      border-radius: .8rem;
+      margin-top: 2rem;
+   }
+}
+
+@media screen and (min-width: 1366px) {
+   .main-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   .wrapper {
+      height: 100vh;
+      min-height: 0;
+   }
+
+   .front--text {
+      width: max-content;
+      top: 20%;
+      left: 38%;
+   }
+
+   .card-cvc--text {
+      top: 104%;
+      color: var.$white;
+      right: -90px;
+   }
+
+   .header-wrapper {
+      height: 100vh;
+      width: 25vw;
+      background: url('../img/bg-main-desktop.png') no-repeat;
+      margin-bottom: 0;
+      display: grid;
+      align-items: center;
+
+      .header {
+
+         img {
+            width: 320px;
+            position: absolute;
+            z-index: 3;
+         }
+
+         img:nth-child(1) {
+            left: 50%;
+            top: 70%;
+            z-index: 1;
+         }
+
+         img:nth-child(2) {
+            z-index: 2;
+            left: 30%;
+            top: -50px;
+         }
+
+         img:nth-child(3) {
+            width: 20%;
+            max-width: 62px;
+            top: -13%;
+            left: 35%;
+         }
+      }
+   }
+
+   .form {
+      width: 30%;
+   }
+}
